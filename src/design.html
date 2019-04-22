@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Google Book Search</h1>
+        </header>
+        <form class="search">
+            <label for="book-search">Search:</label>
+            <input id="book-search" type="text" placeholder="Infinite Jest" required/>
+            <button type="submit">Search</button>
+        </form>
+        <div class="search-filters">
+            <label for="print-type">Print Type:</label>
+            <select id="print-type">
+                <option value="all">All</option>
+                <option value="books">Books</option>
+                <option value="magazines">Magazines</option>
+            </select>
+            
+            <label for="book-type">Book Type:</label>
+            <select id="book-type">
+                <option value="ebooks">E-books</option>
+                <option value="free-ebooks">Free E-books</option>
+                <option value="paid-ebooks">Paid E-books</option>
+                <option value="full">Full</option>
+                <option value="partial">Partial</option>
+            </select>
+        </div>
+        <ul class="result-list">
+            <li>
+                <h2>title</h2>
+                <p>author</p>
+                <p>price</p>
+                <p>description</p>
+                <img />
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
+
+
+<!-- 
+    app (top header with banner)
+        search 
+        filter 
+            print type
+            book type
+        result list component
+            result (title, author, price, description, picture)
+-->
