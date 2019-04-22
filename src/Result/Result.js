@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 
 export default class Result extends Component {
     render() {
-        return (
-            <li className="result">
-                <h2>title</h2>
-                <p>author</p>
-                <p>price</p>
-                <p>description</p>
-                <img />
-            </li>
-
-        )
+        // if (!this.props.price) {
+            return (
+                <li key={this.props.name} className="result">
+                    <h2>Title: {this.props.title}</h2>
+                    <p>Author(s): {this.props.author}</p>
+                    <p>Price: {this.props.price ? `$${this.props.price}` : this.props.noPrice}</p>
+                    <p>Description: {this.props.description}</p>
+                    <img src={this.props.imageSrc} alt={`For ${this.props.title}`} />
+                </li>
+            )
+    
+        }
     }
-}
+
+

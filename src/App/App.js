@@ -23,26 +23,38 @@ export default class App extends Component {
 
     event.preventDefault();
     let key = "AIzaSyAXDkc94x2BpERTQbr8jGZoBRTt41iXYkI"
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}}}r&filter=${bookType}&printType=${printType}&maxResults=5&key=${key}`
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}}}r&maxResults=5&key=${key}`
 
+    if (bookType){
+      url += `&filter=${bookType}`
+    } 
+    
+    if (printType) {
+      url += `&printType=${printType}`
+    }
+
+    this.setState({
+      loading: true, error: null
+    });
     fetch(url)
-      .then(res => res.ok ? res.json() : Promise.reject('Everything is wrong'))
+      .then(res => res.ok ? res.json() : Promise.reject('Everything is wrong. Try Again'))
       .then(data => this.setState({
-        books: data.items
+        books: data.items,
+        loading: false
       }))
-      .catch(err => this.setState({error: err}))
+      .catch(error => this.setState({error, loading: false}))
   }
 
   
   render() {
-    console.log(this.state.error)
     return (
       <div className="app-container">
         <header>
             <h1>Google Book Search</h1>
         </header>
+        <h2>{this.state.error}</h2>
         <Search onSubmit={this.handleSubmit} />
-        <ResultList />
+        <ResultList books={this.state.books}/>
       </div>
 
     );

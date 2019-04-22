@@ -6,7 +6,8 @@ export default class BookType extends Component {
             <div>
                 <label htmlFor="book-type">Book Type:</label>
                 <select name='booktype' id="book-type">
-                    <option value="ebooks">All</option>
+                    <option value="">All</option>
+                    <option value="ebooks">E-Books</option>
                     <option value="free-ebooks">Free E-books</option>
                     <option value="paid-ebooks">Paid E-books</option>
                     <option value="full">Full</option>
