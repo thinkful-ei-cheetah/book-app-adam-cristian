@@ -5,7 +5,7 @@ export default class PrintType extends Component {
         return (
             <div>
                 <label htmlFor="print-type">Print Type:</label>
-                <select id="print-type">
+                <select name='printtype' id="print-type">
                     <option value="all">All</option>
                     <option value="books">Books</option>
                     <option value="magazines">Magazines</option>
